@@ -6,6 +6,7 @@ execute:
   warning: false
   message: false
 ---
+
 ```{r}
 library(tidyverse)
 library(here)
@@ -40,7 +41,7 @@ mc_salamanders <- verts_clean %>%
 ## 4. Make a scatterplot of salamander length x weight
 
 ```{r}
-salamander_plot <- ggplot(data = mc_salamanders, aes(x = length1, y = weight)) +
+salamander_plot <- ggplot(data = mc_salamanders, aes(x = weight, y = length1)) +
   geom_point(color = "coral",
              size = .8,
              alpha = .5) +
@@ -68,7 +69,7 @@ mc_trout <- verts_clean %>%
 ```
 
 ```{r}
-trout_plot <- ggplot(data = mc_trout, aes(x = length1, y = weight)) +
+trout_plot <- ggplot(data = mc_trout, aes(x = weight, y = length1)) +
   geom_point(aes(color = reach)) +
   scale_color_manual(values = c("burlywood2", "deepskyblue3", "deeppink4")) +
   facet_wrap(~reach) + 
@@ -85,4 +86,3 @@ ggsave(plot = trout_plot,
        width = 6,
        height = 5)
 ```
-
